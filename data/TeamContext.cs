@@ -5,7 +5,7 @@ using Microsoft.Extensions.Logging;
 using System;
 using System.Drawing;
 using System.Linq;
-
+using Microsoft.EntityFrameworkCore.SqlServer;
 namespace Data
 {
   public class TeamContext : DbContext
@@ -29,7 +29,8 @@ namespace Data
     {
       if (!optionsBuilder.IsConfigured)
       {
-        optionsBuilder.UseSqlite("Data Source=d:\\data\\TeamData.db")
+        optionsBuilder
+                    .UseSqlServer("server=.; Initial Catalog=TeamManagementContext;User ID=sa;Password=1qaz@WSX")
                       .UseLoggerFactory(ConsoleLoggerFactory)
                       .EnableSensitiveDataLogging();
       }

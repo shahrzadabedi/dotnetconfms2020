@@ -20,10 +20,10 @@ namespace data.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("UniqueIdentifier");
 
                     b.Property<Guid?>("CurrentTeamId")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("UniqueIdentifier");
 
                     b.HasKey("Id");
 
@@ -36,10 +36,10 @@ namespace data.Migrations
             modelBuilder.Entity("Domain.ManagerTeamHistory", b =>
                 {
                     b.Property<Guid>("ManagerId")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("UniqueIdentifier");
 
                     b.Property<Guid>("TeamId")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("UniqueIdentifier");
 
                     b.HasKey("ManagerId", "TeamId");
 
@@ -50,7 +50,7 @@ namespace data.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("UniqueIdentifier");
 
                     b.Property<DateTime>("Created")
                         .HasColumnType("TEXT");
@@ -79,10 +79,10 @@ namespace data.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("UniqueIdentifier");
 
                     b.Property<Guid?>("TeamId")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("UniqueIdentifier");
 
                     b.HasKey("Id");
 
@@ -100,7 +100,7 @@ namespace data.Migrations
                     b.OwnsOne("SharedKernel.PersonFullName", "NameFactory", b1 =>
                         {
                             b1.Property<Guid>("CurrentTeamId")
-                                .HasColumnType("TEXT");
+                                .HasColumnType("UniqueIdentifier");
 
                             b1.Property<string>("First")
                                 .HasColumnType("TEXT");
@@ -131,7 +131,7 @@ namespace data.Migrations
                     b.OwnsOne("Domain.UniformColors", "HomeColors", b1 =>
                         {
                             b1.Property<Guid>("TeamId")
-                                .HasColumnType("TEXT");
+                                .HasColumnType("UniqueIdentifier");
 
                             b1.Property<string>("Primary")
                                 .IsRequired()
@@ -159,7 +159,7 @@ namespace data.Migrations
                     b.OwnsOne("SharedKernel.PersonFullName", "NameFactory", b1 =>
                         {
                             b1.Property<Guid>("PlayerId")
-                                .HasColumnType("TEXT");
+                                .HasColumnType("UniqueIdentifier");
 
                             b1.Property<string>("First")
                                 .HasColumnName("FName")
